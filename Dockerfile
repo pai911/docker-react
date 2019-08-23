@@ -15,5 +15,8 @@ CMD ["npm", "run", "build"]
 
 # 2. Run Phase (Copy build result from previous phase)
 FROM nginx
-COPY --from=builder /app/build /usr/share/nginx/html
 
+#Elastic BeansTalk will use this to do port mapping. (No effect when use Docker CLI)
+EXPOSE 80
+
+COPY --from=builder /app/build /usr/share/nginx/html
