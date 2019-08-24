@@ -11,7 +11,7 @@ RUN npm install
 # Copy all files
 COPY . .
 
-CMD ["npm", "run", "build"]
+RUN npm run build
 
 # 2. Run Phase (Copy build result from previous phase)
 FROM nginx
